@@ -1,0 +1,64 @@
+<div class="wrapper">
+
+  <header-bar></header-bar>
+  <!-- Left side column. contains the logo and sidebar -->
+  <side-bar></side-bar>
+
+  <!-- Content Wrapper. Contains user content -->
+  <div class="content-wrapper">
+    <!-- Content Header (User header) -->
+    <section class="content-header" >
+      <h1>
+        {{Ctrl.title}}
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="javascript:void(0)"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content" >
+      <div class="row">
+        <div class="col-xs-12">
+
+          <!-- /.box-header -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">{{Ctrl.title}}</h3>
+            </div>
+            <notification-bar alert-data="Ctrl.notify"></notification-bar>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form" ng-submit="Ctrl.saveCoupon()" name="myForm">
+              <div class="box-body">
+                <form-input label= "Name" required name="name" model="Ctrl.coupon.name"></form-input>
+                <form-input label="Description" required name="email" model="Ctrl.coupon.description"></form-input>
+                <form-input label="Code" required name="phone" model="Ctrl.coupon.code"></form-input>
+                <form-input label="User" required name="phone" model="Ctrl.coupon.uses"></form-input>
+                <label>Start</label>
+                <input class="form-control" type="date" label="Start" id="start"  required name="phone" model="Ctrl.coupon.start"/>
+                <label>Expiry</label>
+                <input type="date" class="form-control" label="Expiry" type="date" required name="phone" model="Ctrl.coupon.expiry"></form-input>
+            <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-default" ng-click="myForm.reset()">Reset</button>
+              </div>
+            </form>
+          </div>
+          <!-- /.box-body -->
+
+
+        </div>
+
+        <!-- /.content -->
+      </div>
+    </section>
+    <!-- /.content-wrapper -->
+
+    <footer-bar></footer-bar>
+  </div>
+</div>
+<!-- ./wrapper -->
