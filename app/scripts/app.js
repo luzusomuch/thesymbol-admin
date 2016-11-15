@@ -18,10 +18,16 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngFileUpload'
+    'ngFileUpload',
+    'angular-growl'
   ])
   .constant({
-    'endpoint': "http://104.236.48.110:3000/api/v1"
+    // 'endpoint': "http://104.236.48.110:3000/api/v1"
+    'endpoint': "http://localhost:3000/api/v1"
+  })
+  .config(function(growlProvider) {
+    growlProvider.globalTimeToLive(3000);
+    growlProvider.globalDisableCountDown(true);
   })
   .config(function($routeProvider) {
     $routeProvider
@@ -243,6 +249,19 @@ angular
       .when('/subscription_list', {
         templateUrl: 'views/subscription_list.html',
         controller: 'SubscriptionCtrl',
+        controllerAs: 'Ctrl'
+      })
+      .when('/primesubscription-list', {
+        templateUrl: 'views/prime-subscription-list.html',
+        controller: 'PrimeSubscriptionCtrl',
+        controllerAs: 'Ctrl'
+      }).when('/add-primesubscription', {
+        templateUrl: 'views/prime-subscription-add.html',
+        controller: 'AddPrimeSubscriptionCtrl',
+        controllerAs: 'Ctrl'
+      }).when('/edit-primesubscription/:id', {
+        templateUrl: 'views/prime-subscription-edit.html',
+        controller: 'EditPrimeSubscriptionCtrl',
         controllerAs: 'Ctrl'
       })
       .otherwise({
