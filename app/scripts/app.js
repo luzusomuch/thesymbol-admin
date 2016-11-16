@@ -19,7 +19,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ngFileUpload',
-    'angular-growl'
+    'angular-growl',
+    'ui.select'
   ])
   .constant({
     // 'endpoint': "http://104.236.48.110:3000/api/v1"
@@ -262,6 +263,19 @@ angular
       }).when('/edit-primesubscription/:id', {
         templateUrl: 'views/prime-subscription-edit.html',
         controller: 'EditPrimeSubscriptionCtrl',
+        controllerAs: 'Ctrl'
+      })
+      .when('/currency-list', {
+        templateUrl: 'views/currency-list.html',
+        controller: 'CurrencyCtrl',
+        controllerAs: 'Ctrl'
+      }).when('/add-currency', {
+        templateUrl: 'views/currency-add.html',
+        controller: 'AddCurrencyCtrl',
+        controllerAs: 'Ctrl'
+      }).when('/edit-currency/:id', {
+        templateUrl: 'views/currency-edit.html',
+        controller: 'EditCurrencyCtrl',
         controllerAs: 'Ctrl'
       })
       .otherwise({
