@@ -11,8 +11,8 @@ angular.module('eCommerceAdminApp')
   .controller('CurrencyCtrl', ['currencyService', 'growl', function(currencyService, growl) {
   	this.currencies = [];
 
-  	this.getAllCurrencies = () => {
-  		currencyService.query().$promise.then(resp => {
+  	this.getAllCurrencies = function() {
+  		currencyService.query().$promise.then(function(resp) {
   			if (resp.status==='success') {
   				this.currencies = resp.response;
   			} else {
@@ -22,11 +22,11 @@ angular.module('eCommerceAdminApp')
   	};
   	this.getAllCurrencies();
 
-  	this.remove = (id) => {
+  	this.remove = function(id) {
   		if (window.confirm('Do you really want to delete this item?')) {
-  			currencyService.remove({id: id}).$promise.then(resp => {
+  			currencyService.remove({id: id}).$promise.then(function(resp) {
           if (resp.status==='success') {
-            let index = _.findIndex(this.currencies, (item) => {
+            var index = _.findIndex(this.currencies, function(item) {
               return item._id.toString()===id.toString();
             });
             if (index !== -1) {

@@ -12,10 +12,10 @@ angular.module('eCommerceAdminApp')
   	this.primesubscription = {};
   	this.submitted = false;
 
-  	this.submit = (form) => {
+  	this.submit = function(form) {
   		this.submitted = true;
   		if (form.$valid) {
-  			primesubscriptionService.create({}, this.primesubscription).$promise.then(data => {
+  			primesubscriptionService.create({}, this.primesubscription).$promise.then(function(data) {
   				if (data.status==='success') {
   					growl.success('Create new prime subscription data successfully');
   					this.submitted = false;
@@ -29,7 +29,7 @@ angular.module('eCommerceAdminApp')
   		}
   	}
 
-  	this.reset = ()=> {
+  	this.reset = function() {
   		this.primesubscription = {};
   	};
   }]);

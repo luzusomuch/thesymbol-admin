@@ -23,8 +23,14 @@ angular
     'ui.select'
   ])
   .constant({
+    // production mode
     // 'endpoint': "http://104.236.48.110:3000/api/v1"
-    'endpoint': "http://localhost:3000/api/v1"
+
+    // testing mode
+    'endpoint': "http://104.236.38.133:3000/api/v1"
+
+    // dev mode
+    // 'endpoint': "http://localhost:3000/api/v1"
   })
   .config(function(growlProvider) {
     growlProvider.globalTimeToLive(3000);

@@ -9,7 +9,7 @@
  */
 angular.module('eCommerceAdminApp')
   .controller('EditCurrencyCtrl', ['currencyService', 'growl', '$routeParams', '$scope', '$http', function(currencyService, growl, $routeParams, $scope, $http) {
-  	currencyService.get({id: $routeParams.id}).$promise.then(resp => {
+  	currencyService.get({id: $routeParams.id}).$promise.then(function(resp) {
   		if (resp.status==='success') {
   			this.currency = resp.response;
   			if (this.currency && this.currency.countryName) {
@@ -23,13 +23,13 @@ angular.module('eCommerceAdminApp')
 
   	this.addresses = [];
     this.address = {};
-    this.refreshAddresses = (address, auto) => {
+    this.refreshAddresses = function(address, auto) {
       if (address.trim().length > 0) {
         var params = {address: address, sensor: false};
         return $http.get(
           'http://maps.googleapis.com/maps/api/geocode/json',
           {params: params}
-        ).then( (response) => {
+        ).then( function(response) {
           this.addresses = response.data.results;
           if (auto) {
           	this.address.selected = this.addresses[0];
@@ -38,9 +38,9 @@ angular.module('eCommerceAdminApp')
       }
     };
 
-    $scope.$watch('Ctrl.address.selected', (nv) => {
+    $scope.$watch('Ctrl.address.selected', function(nv) {
       if (nv) {
-        _.each(nv.address_components, (item) => {
+        _.each(nv.address_components, function(item) {
           if (item.types[0]==='country') {
             this.currency.countryName = item.long_name;
             this.currency.countryCode = item.short_name;
@@ -49,10 +49,10 @@ angular.module('eCommerceAdminApp')
       }
     }, true);
 
-  	this.submit = (form) => {
+  	this.submit = function(form) {
   		this.submitted = true;
   		if (form.$valid) {
-  			currencyService.update({id: this.currency._id}, this.currency).$promise.then(data => {
+  			currencyService.update({id: this.currency._id}, this.currency).$promise.then(function(data) {
   				if (data.status==='success') {
   					growl.success('Update currency data successfully');
   					this.submitted = false;

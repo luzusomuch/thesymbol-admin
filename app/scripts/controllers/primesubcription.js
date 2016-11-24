@@ -11,8 +11,8 @@ angular.module('eCommerceAdminApp')
   .controller('PrimeSubscriptionCtrl', ['primesubscriptionService', 'growl', function(primesubscriptionService, growl) {
   	this.primesubscriptions = [];
 
-  	this.getAllPrimesubscriptions = () => {
-  		primesubscriptionService.query().$promise.then(resp => {
+  	this.getAllPrimesubscriptions = function() {
+  		primesubscriptionService.query().$promise.then(function(resp) {
         if (resp.status==='success') {
   			 this.primesubscriptions = resp.response;
         } else {
@@ -21,11 +21,11 @@ angular.module('eCommerceAdminApp')
   		});
   	};
 
-    this.remove = (id) => {
+    this.remove = function(id) {
       if (window.confirm('Do you really want to delete this item?')) {
-        primesubscriptionService.remove({id: id}).$promise.then(resp => {
+        primesubscriptionService.remove({id: id}).$promise.then(function(resp) {
           if (resp.status==='success') {
-            let index = _.findIndex(this.primesubscriptions, (item) => {
+            var index = _.findIndex(this.primesubscriptions, function(item) {
               return item._id.toString()===id.toString();
             });
             if (index !== -1) {

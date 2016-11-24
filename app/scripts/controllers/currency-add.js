@@ -13,22 +13,22 @@ angular.module('eCommerceAdminApp')
   	this.submitted = false;
 
   	this.addresses = [];
-    this.refreshAddresses = (address) => {
+    this.refreshAddresses = function(address) {
       if (address.trim().length > 0) {
         var params = {address: address, sensor: false};
         return $http.get(
           'http://maps.googleapis.com/maps/api/geocode/json',
           {params: params}
-        ).then( (response) => {
+        ).then( function(response) {
           $scope.addresses = response.data.results;
         });
       }
     };
 
     this.address = {};
-    $scope.$watch('Ctrl.address.selected', (nv) => {
+    $scope.$watch('Ctrl.address.selected', function(nv) {
       if (nv) {
-        _.each(nv.address_components, (item) => {
+        _.each(nv.address_components, function(item) {
         	this.reset();
           if (item.types[0]==='country') {
             this.currency.countryName = item.long_name;
@@ -38,10 +38,10 @@ angular.module('eCommerceAdminApp')
       }
     }, true);
 
-  	this.submit = (form) => {
+  	this.submit = function(form) {
   		this.submitted = true;
   		if (form.$valid) {
-  			currencyService.create({}, this.currency).$promise.then(data => {
+  			currencyService.create({}, this.currency).$promise.then(function(data) {
   				if (data.status==='success') {
   					growl.success('Create new currency successfully');
   					this.submitted = false;
@@ -56,7 +56,7 @@ angular.module('eCommerceAdminApp')
   		}
   	}
 
-  	this.reset = ()=> {
+  	this.reset = function() {
   		this.currency = {};
   	};
   }]);
