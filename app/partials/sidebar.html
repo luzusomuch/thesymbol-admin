@@ -152,6 +152,18 @@
           <li><a href="/#/add-currency"><i class="fa fa-circle-o"></i> Add currency</a></li>
         </ul>
       </li>
+
+      <li class="treeview" ng-click="CC.activeRoute = 'dispute'" ng-class="{'active': CC.activeRoute==='dispute'}">
+        <a href="javascript:void(0)">
+          <i class="fa fa-dashboard"></i> <span>Dispute</span>
+          <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/#/dispute-list"><i class="fa fa-circle-o"></i> View dispute</a></li>
+        </ul>
+      </li>
     </ul>
   </section>
   <!-- /.sidebar -->

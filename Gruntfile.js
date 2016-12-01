@@ -78,7 +78,7 @@ module.exports = function (grunt) {
 
         // test mode
         port: 9000,
-        hostname: "104.236.38.133",
+        hostname: "192.241.154.223",
         livereload: 35700
 
         // development mode
