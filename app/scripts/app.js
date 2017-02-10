@@ -27,7 +27,10 @@ angular
     // 'endpoint': "http://104.236.48.110:3000/api/v1"
 
     // testing mode
-    'endpoint': "http://192.241.154.223:3000/api/v1"
+    // 'endpoint': "http://192.241.154.223:3000/api/v1"
+
+    // our testing server
+    'endpoint': 'http://159.203.165.170:3000/api/v1',
 
     // dev mode
     // 'endpoint': "http://localhost:3000/api/v1"

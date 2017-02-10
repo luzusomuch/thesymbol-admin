@@ -18,13 +18,15 @@ angular.module('eCommerceAdminApp')
   	});
   	this.submitted = false;
 
+    var _this = this;
+
   	this.submit = function(form) {
-  		this.submitted = true;
+  		_this.submitted = true;
   		if (form.$valid) {
-  			primesubscriptionService.update({id: this.primesubscription._id}, this.primesubscription).$promise.then(function(data) {
+  			primesubscriptionService.update({id: _this.primesubscription._id}, _this.primesubscription).$promise.then(function(data) {
   				if (data.status==='success') {
   					growl.success('Update prime subscription data successfully');
-  					this.submitted = false;
+  					_this.submitted = false;
   				} else {
   					growl.error(data.statusMessage);
   				}

@@ -11,15 +11,16 @@ angular.module('eCommerceAdminApp')
   .controller('AddPrimeSubscriptionCtrl', ['primesubscriptionService', 'growl', function(primesubscriptionService, growl) {
   	this.primesubscription = {};
   	this.submitted = false;
+    var _this = this;
 
   	this.submit = function(form) {
-  		this.submitted = true;
+  		_this.submitted = true;
   		if (form.$valid) {
-  			primesubscriptionService.create({}, this.primesubscription).$promise.then(function(data) {
+  			primesubscriptionService.create({}, _this.primesubscription).$promise.then(function(data) {
   				if (data.status==='success') {
   					growl.success('Create new prime subscription data successfully');
-  					this.submitted = false;
-  					this.reset();
+  					_this.submitted = false;
+  					_this.reset();
   				} else {
   					growl.error(data.statusMessage);
   				}
@@ -30,6 +31,6 @@ angular.module('eCommerceAdminApp')
   	}
 
   	this.reset = function() {
-  		this.primesubscription = {};
+  		_this.primesubscription = {};
   	};
   }]);

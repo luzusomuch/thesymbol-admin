@@ -9,10 +9,13 @@
  */
 angular.module('eCommerceAdminApp')
   .controller('AddCurrencyCtrl', ['currencyService', 'growl', '$scope', '$http', function(currencyService, growl, $scope, $http) {
-  	this.currency = {};
-  	this.submitted = false;
+    this.currency = {};
+    this.submitted = false;
+    this.address = {};
+    this.addresses = [];
 
-  	this.addresses = [];
+    var _this = this;
+
     this.refreshAddresses = function(address) {
       if (address.trim().length > 0) {
         var params = {address: address, sensor: false};
@@ -25,28 +28,27 @@ angular.module('eCommerceAdminApp')
       }
     };
 
-    this.address = {};
     $scope.$watch('Ctrl.address.selected', function(nv) {
       if (nv) {
         _.each(nv.address_components, function(item) {
-        	this.reset();
+        	_this.reset();
           if (item.types[0]==='country') {
-            this.currency.countryName = item.long_name;
-            this.currency.countryCode = item.short_name;
+            _this.currency.countryName = item.long_name;
+            _this.currency.countryCode = item.short_name;
           }
         });
       }
     }, true);
 
   	this.submit = function(form) {
-  		this.submitted = true;
+  		_this.submitted = true;
   		if (form.$valid) {
-  			currencyService.create({}, this.currency).$promise.then(function(data) {
+  			currencyService.create({}, _this.currency).$promise.then(function(data) {
   				if (data.status==='success') {
   					growl.success('Create new currency successfully');
-  					this.submitted = false;
-  					this.address = {};
-  					this.reset();
+  					_this.submitted = false;
+  					_this.address = {};
+  					_this.reset();
   				} else {
   					growl.error(data.statusMessage);
   				}
@@ -57,6 +59,6 @@ angular.module('eCommerceAdminApp')
   	}
 
   	this.reset = function() {
-  		this.currency = {};
+  		_this.currency = {};
   	};
   }]);
