@@ -30,29 +30,31 @@ angular.module('eCommerceAdminApp')
       }
     });
     _this.remove = function (id, index) {
-      Category.deleteSingle({id:id}, {}, function(data) {
-        if(data.status == "success") {
-          _this.notify = {
-            message: "Deleted Succesfully",
-            status: data.status,
-            type: "success"
+      if (window.confirm('Do you want to remove this item?')) {
+        Category.deleteSingle({id:id}, {}, function(data) {
+          if(data.status == "success") {
+            _this.notify = {
+              message: "Deleted Succesfully",
+              status: data.status,
+              type: "success"
+            }
+            _this.categories.splice(index, 1);
           }
-          _this.categories.splice(index, 1);
-        }
-        else {
+          else {
+            _this.notify = {
+              message: data.statusMessage,
+              status: data.status,
+              type: "danger"
+            }
+          }
+        }, function (data) {
           _this.notify = {
-            message: data.statusMessage,
+            message: data.statusText,
             status: data.status,
             type: "danger"
           }
-        }
-      }, function (data) {
-        _this.notify = {
-          message: data.statusText,
-          status: data.status,
-          type: "danger"
-        }
-      });
+        });
+      }
     }
     $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
       $('#example2').DataTable({

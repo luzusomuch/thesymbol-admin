@@ -126,10 +126,10 @@ angular.module('eCommerceAdminApp')
       _this.saveLicense = function() {
         var license = angular.copy(_this.license);
         license.name = license.name;
-        license.description =license.description;
+        license.description = license.description;
         licenses.update({
           id: $routeParams.id
-        }, licenses, function(data) {
+        }, license, function(data) {
           if (data.status == "success") {
             _this.notify = {
               message: "Updated Succesfully",

@@ -9,7 +9,7 @@
  */
 angular.module('eCommerceAdminApp')
   .service('licenses', ['$resource', 'endpoint', 'sessionService', function($resource, endpoint, sessionService) {
-    return $resource(endpoint + "/licenses", {}, {
+    return $resource(endpoint + "/licenses", {id: '@id'}, {
       query: {
         method: "GET",
         headers: {

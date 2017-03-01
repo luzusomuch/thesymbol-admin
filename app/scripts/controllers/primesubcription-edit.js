@@ -9,16 +9,17 @@
  */
 angular.module('eCommerceAdminApp')
   .controller('EditPrimeSubscriptionCtrl', ['primesubscriptionService', 'growl', '$routeParams' , function(primesubscriptionService, growl, $routeParams) {
-  	primesubscriptionService.get({id: $routeParams.id}).$promise.then(function(resp) {
-  		if (resp.status==='success') {
-  			this.primesubscription = resp.response;
-  		} else {
-  			growl.error(resp.statusMessage);
-  		}
-  	});
-  	this.submitted = false;
-
     var _this = this;
+
+    primesubscriptionService.get({id: $routeParams.id}).$promise.then(function(resp) {
+      if (resp.status==='success') {
+        _this.primesubscription = resp.response;
+      } else {
+        growl.error(resp.statusMessage);
+      }
+    });
+    this.submitted = false;
+
 
   	this.submit = function(form) {
   		_this.submitted = true;

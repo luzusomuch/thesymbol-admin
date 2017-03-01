@@ -30,28 +30,30 @@ angular.module('eCommerceAdminApp')
     });
 
     _this.remove = function (id, index) {
-      emailtemplates.remove({id:id}, {}, function(data) {
-        if(data.status == "success") {
-          _this.notify = {
-            message: "Deleted Succesfully",
-            status: data.status,
-            type: "success"
+      if (window.confirm('Do you want to delete this item?')) {
+        emailtemplates.remove({id:id}, {}, function(data) {
+          if(data.status == "success") {
+            _this.notify = {
+              message: "Deleted Succesfully",
+              status: data.status,
+              type: "success"
+            }
+            _this.emailtemplates.splice(index, 1);
           }
-          _this.emailtemplates.splice(index, 1);
-        }
-        else {
+          else {
+            _this.notify = {
+              message: data.statusMessage,
+              status: data.status,
+              type: "danger"
+            }
+          }
+        }, function (data) {
           _this.notify = {
-            message: data.statusMessage,
+            message: data.statusText,
             status: data.status,
             type: "danger"
           }
-        }
-      }, function (data) {
-        _this.notify = {
-          message: data.statusText,
-          status: data.status,
-          type: "danger"
-        }
-      });
+        });
+      }
     }
   }]);

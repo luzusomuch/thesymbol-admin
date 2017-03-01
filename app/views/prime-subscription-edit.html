@@ -12,7 +12,7 @@
         Update prime subscription
       </h1>
       <ol class="breadcrumb">
-        <li><a href="javascript:void(0)"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#/"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
       </ol>
     </section>
@@ -32,22 +32,22 @@
             <form role="form" ng-submit="Ctrl.submit(myForm)" name="myForm" novalidate="">
               <div class="box-body">
               	<div class="form-group">
-              		<label>Radius (km)</label>
-              		<input class="form-control" type="number" name="radius" required ng-model="Ctrl.primesubscription.radius">
+              		<label>Radius (km) <span class="liked">(*)</span></label>
+              		<input class="form-control" positive type="number" name="radius" required ng-model="Ctrl.primesubscription.radius">
 
               		<span class="text-danger" ng-show="myForm.radius.$error.required && Ctrl.submitted">Radius distance is required</span>
               	</div>
 
               	<div class="form-group">
-              		<label>Hours</label>
-              		<input class="form-control" type="number" name="hours" required ng-model="Ctrl.primesubscription.hours">
+              		<label>Hours <span class="liked">(*)</span></label>
+              		<input class="form-control" positive type="number" name="hours" required ng-model="Ctrl.primesubscription.hours">
 
               		<span class="text-danger" ng-show="myForm.hours.$error.required && Ctrl.submitted">Hours is required</span>
               	</div>
 
               	<div class="form-group">
-              		<label>Extra pay</label>
-              		<input class="form-control" type="number" name="extraPay" required ng-model="Ctrl.primesubscription.extra_pay">
+              		<label>Extra pay <span class="liked">(*)</span></label>
+              		<input class="form-control" positive type="number" name="extraPay" required ng-model="Ctrl.primesubscription.extra_pay">
 
               		<span class="text-danger" ng-show="myForm.extraPay.$error.required && Ctrl.submitted">Extra pay is required</span>
               	</div>

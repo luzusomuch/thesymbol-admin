@@ -12,7 +12,6 @@ angular.module('eCommerceAdminApp')
     var admin = JSON.parse(sessionService.get("user"));
 
     this.route = $route.current.$$route.originalPath;
-    console.log(this.route);
     
     this.name = admin.name;
     this._id = admin._id;

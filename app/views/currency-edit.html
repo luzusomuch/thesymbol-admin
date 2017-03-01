@@ -12,7 +12,7 @@
         Update currency
       </h1>
       <ol class="breadcrumb">
-        <li><a href="javascript:void(0)"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#/"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
       </ol>
     </section>
@@ -32,6 +32,7 @@
             <form role="form" ng-submit="Ctrl.submit(myForm)" name="myForm" novalidate="">
               <div class="box-body">
               	<div class="form-group">
+                  <label>Country <span class="liked">(*)</span></label>
               		<ui-select ng-model="Ctrl.address.selected" theme="bootstrap" append-to-body="true" reset-search-input="false">
                     <ui-select-match>{{$select.selected.formatted_address}}</ui-select-match>
                     <ui-select-choices repeat="address in addresses track by $index" refresh="Ctrl.refreshAddresses($select.search)" refresh-delay="0">
@@ -42,15 +43,15 @@
               	</div>
 
               	<div class="form-group">
-              		<label>Rate</label>
-              		<input class="form-control" type="number" name="rate" required ng-model="Ctrl.currency.rate">
+              		<label>Rate <span class="liked">(*)</span></label>
+              		<input class="form-control" positive type="number" name="rate" required ng-model="Ctrl.currency.rate">
 
               		<span class="text-danger" ng-show="myForm.rate.$error.required && Ctrl.submitted">Rate is required</span>
               	</div>
 
                 <div class="form-group">
-                  <label>Currency icon</label>
-                  <input class="form-control" type="text" name="icon" required ng-model="Ctrl.currency.icon">
+                  <label>Currency icon <span class="liked">(*)</span></label>
+                  <input class="form-control" positive type="text" name="icon" required ng-model="Ctrl.currency.icon">
 
                   <span class="text-danger" ng-show="myForm.icon.$error.required && Ctrl.submitted">Currency icon is required</span>
                 </div>

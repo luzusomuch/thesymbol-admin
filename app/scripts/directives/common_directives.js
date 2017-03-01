@@ -101,7 +101,7 @@ angular.module('eCommerceAdminApp')
   })
   .directive('formInput', function($timeout) {
     var template = '<div class="form-group">' +
-      '<label for="{{id}}">{{label}}</label>' +
+      '<label for="{{id}}">{{label}} <span class="liked">(*)</span> </label>' +
       '<input type="text" required name="{{name}}" class="form-control" ng-model="model" id="{{id}}" placeholder="Enter {{label}}">' +
       '<div ng-messages="myForm.name.$error" ng-message-include="../template/error.tpl.html" class="text-danger"></div>' +
       '</div>';
@@ -119,6 +119,17 @@ angular.module('eCommerceAdminApp')
       replace: true
     };
   })
+  .directive('positive', [function() {
+    return {
+        require: 'ngModel',
+        link: function(scope, elem, attrs, ctrl) {
+            if (!ctrl) return;
+            ctrl.$validators.positive = function(value) {
+                return value && value >= 0;
+            };
+        }
+    };
+  }])
   .directive('textArea', function($timeout) {
     var template = '<div class="form-group">' +
       '<label for="{{id}}">{{label}}</label>' +
