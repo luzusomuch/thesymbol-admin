@@ -83,13 +83,9 @@
         };
 
         _this.init = function() {
-          var gAP = new getSingleProduct({id: $routeParams.id});
-          gAP.$get(function(resp) {
+          Product.getSingleProduct({id: $routeParams.id}).$promise.then(function(resp) {
             if (resp.status == "success") {
-              console.log(resp);
               var data = angular.copy(resp);
-              console.log(data.response);
-              console.log(resp.response.product)
               _this.product = resp.response.product;
               _this.product_old = angular.copy(_this.product);
               _this.product.selected_categories = [];
@@ -140,8 +136,7 @@
                 type: "danger"
               }
             }
-          },
-          function(data) {
+          }).catch(function(data) {
             var response = data.response;
             if (data.status == "401") {
               sessionService.destroy('token');
@@ -153,6 +148,74 @@
               type: "danger"
             }
           });
+
+          // var gAP = new getSingleProduct({id: $routeParams.id});
+          // gAP.$get(function(resp) {
+          //   if (resp.status == "success") {
+          //     var data = angular.copy(resp);
+          //     _this.product = resp.response.product;
+          //     _this.product_old = angular.copy(_this.product);
+          //     _this.product.selected_categories = [];
+          //     _this.product.categories.forEach(function(item) {
+          //       _this.product.selected_categories.push(item._id);
+          //     });
+          //     var getC = new getCategories();
+          //     getC.$get(function(data) {
+          //       var response = data.response;
+          //       if (data.status == "success") {
+          //         _this.categories = response.categories;
+          //         _this.categories.forEach(function(item) {
+          //           if (_this.product.selected_categories.indexOf(item._id) !== -1) {
+          //             _this.product.category = item._id;
+          //             var subCategories = new getCategories({
+          //               id: _this.product.category
+          //             });
+          //             subCategories.$get(function(data) {
+          //               _this.subcategories = data.response.categories[0].children;
+          //               _this.subcategories.forEach(function(item) {
+          //                 if (_this.product.selected_categories.indexOf(item._id) !== -1) {
+          //                   _this.product.subcategory = item._id;
+          //                 }
+          //               });
+          //             });
+          //           }
+          //         })
+          //       } else {
+          //         _this.notify = {
+          //           message: data.statusMessage,
+          //           status: data.status,
+          //           type: "danger"
+          //         }
+          //       }
+          //     },
+          //     function(data) {
+          //       var response = data.response;
+          //       _this.notify = {
+          //         message: data.statusMessage,
+          //         status: data.status,
+          //         type: "danger"
+          //       }
+          //     });
+          //   } else {
+          //     _this.notify = {
+          //       message: data.statusMessage,
+          //       status: data.status,
+          //       type: "danger"
+          //     }
+          //   }
+          // },
+          // function(data) {
+          //   var response = data.response;
+          //   if (data.status == "401") {
+          //     sessionService.destroy('token');
+          //     $location.path("/login");
+          //   }
+          //   _this.notify = {
+          //     message: response.statusMessage,
+          //     status: response.status,
+          //     type: "danger"
+          //   }
+          // });
         };
 
         _this.init();
