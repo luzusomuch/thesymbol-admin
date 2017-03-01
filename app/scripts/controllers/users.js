@@ -190,6 +190,7 @@ angular.module('eCommerceAdminApp')
     function(users, $scope, $location, $routeParams, sessionService, Upload, endpoint) {
       var _this = this;
       _this.title = "Add Users";
+
       _this.saveUser = function() {
         var user = angular.copy(_this.user);
         user.image = user.upload_image ? user.upload_image : null;
@@ -200,10 +201,11 @@ angular.module('eCommerceAdminApp')
         delete user.upload_banner;
         delete user.upload_logo;
         delete user.role;
+
         users.create({}, user, function(data) {
           if (data.status == "success") {
             _this.notify = {
-              message: "Updated Succesfully",
+              message: "Added User Succesfully",
               status: data.status,
               type: "success"
             }
@@ -222,6 +224,7 @@ angular.module('eCommerceAdminApp')
           }
         });
       }
+
       _this.imageUpload = function(file, name) {
         Upload.upload({
           url: endpoint + '/images/upload-single-image',

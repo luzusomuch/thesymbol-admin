@@ -186,10 +186,13 @@ angular.module('eCommerceAdminApp')
         });
 
         function updateModel() {
-          scope.$apply(function() {
-            ngModel.$setViewValue(ck.getData());
-          });
+          if (!scope.$$phase) {
+            scope.$apply(function() {
+              ngModel.$setViewValue(ck.getData());
+            });
+          }
         }
+        
         ck.on('change', updateModel);
         ck.on('key', updateModel);
         ck.on('dataReady', updateModel);

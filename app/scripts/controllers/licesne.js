@@ -14,7 +14,6 @@ angular.module('eCommerceAdminApp')
     _this.title = "View Licenses";
     licenses.query(function(data) {
       if (data.status == "success") {
-        console.log(data.response);
         _this.licenses = data.response;
       } else {
         _this.notify = {
@@ -30,15 +29,16 @@ angular.module('eCommerceAdminApp')
         type: "danger"
       }
     });
+
     _this.updateStatus = function(id, status, index) {
-      licesnses.update({id:id},{status: status}, function (data) {
+      licenses.update({id:id},{status: status}, function (data) {
         if(data.status == "success") {
           _this.notify = {
             message: "Updated Succesfully",
             status: data.status,
             type: "success"
           }
-          _this.coupon[index].status = status;
+          _this.licenses[index].status = status;
         }
         else {
           _this.notify = {
@@ -57,30 +57,32 @@ angular.module('eCommerceAdminApp')
     }
 
     _this.remove = function(id, index) {
-      licenses.remove({
-        id: id
-      }, {}, function(data) {
-        if (data.status == "success") {
-          _this.notify = {
-            message: "Deleted Succesfully",
-            status: data.status,
-            type: "success"
+      if (window.confirm('Do you want to remove this item?')) {
+        licenses.remove({
+          id: id
+        }, {}, function(data) {
+          if (data.status == "success") {
+            _this.notify = {
+              message: "Deleted Succesfully",
+              status: data.status,
+              type: "success"
+            }
+            _this.licenses.splice(index, 1);
+          } else {
+            _this.notify = {
+              message: data.statusMessage,
+              status: data.status,
+              type: "danger"
+            }
           }
-          _this.licenses.splice(index, 1);
-        } else {
+        }, function(data) {
           _this.notify = {
-            message: data.statusMessage,
+            message: data.statusText,
             status: data.status,
             type: "danger"
           }
-        }
-      }, function(data) {
-        _this.notify = {
-          message: data.statusText,
-          status: data.status,
-          type: "danger"
-        }
-      });
+        });
+      }
     }
   }])
   .controller('LicenseEditCtrl', [
@@ -94,6 +96,7 @@ angular.module('eCommerceAdminApp')
     function(licenses, $scope, $location, $routeParams, sessionService, Upload, endpoint) {
       var _this = this;
       _this.title = "Edit Licenses";
+
       licenses.get({
         id: $routeParams.id
       }, function(data) {
@@ -119,6 +122,7 @@ angular.module('eCommerceAdminApp')
           type: "danger"
         }
       });
+
       _this.saveLicense = function() {
         var license = angular.copy(_this.license);
         license.name = license.name;
@@ -146,7 +150,11 @@ angular.module('eCommerceAdminApp')
             type: "danger"
           }
         });
-      }
+      };
+
+      _this.reset = function() {
+        _this.license = {};
+      };
 
     }
   ])
@@ -170,10 +178,11 @@ angular.module('eCommerceAdminApp')
         licenses.create({}, license, function(data) {
           if (data.status == "success") {
             _this.notify = {
-              message: "Updated Succesfully",
+              message: "Created License Succesfully",
               status: data.status,
               type: "success"
-            }
+            };
+            _this.reset();
           } else {
             _this.notify = {
               message: data.statusMessage,
@@ -188,7 +197,11 @@ angular.module('eCommerceAdminApp')
             type: "danger"
           }
         });
-      }
+      };
+
+      _this.reset = function() {
+        _this.license = {};
+      };
 
     }
   ]);

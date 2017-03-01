@@ -39,15 +39,15 @@
                 <label>Select Type</label>
                 <select  ng-model="Ctrl.subscription.type" class="form-control" required class="col-md-3 form-cont product_info_input" ng-model="cat" ng-change ="sub_category()">
   							<option value="">Select</option>
-  								<option  value="day">Day</option>
-                  <option  value="week">Week</option>
-                  <option  value="month">Month</option>
-                  <option  value="year">Year</option>
+  								<option  value="days">Day</option>
+                  <option  value="weeks">Week</option>
+                  <option  value="months">Month</option>
+                  <option  value="years">Year</option>
   							</select>
                 <label>Add Features</label>
                 <div  data-ng-repeat="feature in Ctrl.features" class="col-md-12" style="padding:0px;">
                   <div class="col-md-8" style="padding:0px;">
-                    <input ng-model="Ctrl.subscription.features"  class="form-control col-md-5" style="margin: 10px 15px;" placeholder="Feature">
+                    <input ng-model="feature.feature"  class="form-control col-md-5" style="margin: 10px 15px;" placeholder="Feature">
                   </div>
                   <div class="col-md-1">
                     <input type="button" class="form-control remove btn btn-danger" style="margin:10px 15px;"  ng-click="Ctrl.removeFeatures($index)" value="-">
@@ -62,7 +62,7 @@
 
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="button" class="btn btn-default" ng-click="myForm.reset()">Reset</button>
+                <button type="button" class="btn btn-default" ng-click="Ctrl.reset()">Reset</button>
               </div>
             </form>
           </div>

@@ -37,6 +37,11 @@ angular.module('eCommerceAdminApp')
           type: "danger"
         }
       });
+
+      _this.reset = function() {
+        _this.page = {};
+      };
+
       _this.savePage = function() {
         pages.update({
           id: $routeParams.id

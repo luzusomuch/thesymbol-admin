@@ -21,6 +21,7 @@ angular.module('eCommerceAdminApp')
       _this.title = "Add Categories";
       _this.sub_title = "Add Sub Categories";
       _this.category = {};
+
       Category.getApprovedCategories({}, {}, function(data) {
         if (data.status == "success") {
           _this.categories = data.response.categories;
@@ -63,6 +64,7 @@ angular.module('eCommerceAdminApp')
           }
         })
       }
+
       _this.imageUpload = function(file, name, is_icon) {
         Upload.upload({
           url: endpoint + '/images/upload-single-image',

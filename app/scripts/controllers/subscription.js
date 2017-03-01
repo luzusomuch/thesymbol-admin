@@ -12,11 +12,9 @@ angular.module('eCommerceAdminApp')
     $('#start').datepicker();
     var _this = this;
     _this.title = "View Subscriptions";
+
     subscriptions.query(function(data) {
       if (data.status == "success") {
-
-        console.log(data.response);
-
         _this.subscriptions = data.response;
       } else {
         _this.notify = {
@@ -32,6 +30,7 @@ angular.module('eCommerceAdminApp')
         type: "danger"
       }
     });
+
     _this.updateStatus = function(id, status, index) {
       subscriptions.update({id:id},{status: status}, function (data) {
         if(data.status == "success") {
@@ -56,34 +55,36 @@ angular.module('eCommerceAdminApp')
           type: "danger"
         }
       })
-    }
+    };
 
     _this.remove = function(id, index) {
-      subscriptions.remove({
-        id: id
-      }, {}, function(data) {
-        if (data.status == "success") {
-          _this.notify = {
-            message: "Deleted Succesfully",
-            status: data.status,
-            type: "success"
+      if (window.confirm('Do you want to delete this item?')) {
+        subscriptions.remove({
+          id: id
+        }, {}, function(data) {
+          if (data.status == "success") {
+            _this.notify = {
+              message: "Deleted Succesfully",
+              status: data.status,
+              type: "success"
+            }
+            _this.subscriptions.splice(index, 1);
+          } else {
+            _this.notify = {
+              message: data.statusMessage,
+              status: data.status,
+              type: "danger"
+            }
           }
-          _this.subscriptions.splice(index, 1);
-        } else {
+        }, function(data) {
           _this.notify = {
-            message: data.statusMessage,
+            message: data.statusText,
             status: data.status,
             type: "danger"
           }
-        }
-      }, function(data) {
-        _this.notify = {
-          message: data.statusText,
-          status: data.status,
-          type: "danger"
-        }
-      });
-    }
+        });
+      }
+    };
   }])
   .controller('SubscriptionEditCtrl', [
     'subscriptions',
@@ -96,13 +97,20 @@ angular.module('eCommerceAdminApp')
     function(subscriptions, $scope, $location, $routeParams, sessionService, Upload, endpoint) {
       var _this = this;
       _this.features=[];
-      _this.addFeatures = function(){
-            _this.features.push({"feature":""});
-      }
-      _this.removeFeatures = function($index){
-          _this.features.splice($index,1);
-      }
       _this.title = "Edit Subscription";
+
+      _this.addFeatures = function(){
+        _this.features.push({"feature":""});
+      };
+      _this.removeFeatures = function($index){
+        _this.features.splice($index,1);
+      };
+
+      _this.reset = function() {
+        _this.subscription = {};
+        _this.features = [];
+      };
+      
       subscriptions.get({
         id: $routeParams.id
       }, function(data) {
@@ -113,7 +121,10 @@ angular.module('eCommerceAdminApp')
           _this.subscription.numbers=_this.subscription.numbers;
           _this.subscription.price=_this.subscription.price;
           _this.subscription.type=_this.subscription.type;
-          _this.features=_this.subscription.features;
+
+          _.each(_this.subscription.features, function(item) {
+            _this.features.push({feature: item});
+          });
         } else {
           _this.notify = {
             message: data.statusMessage,
@@ -128,6 +139,7 @@ angular.module('eCommerceAdminApp')
           type: "danger"
         }
       });
+
       _this.saveSubscription = function() {
         var subscription = angular.copy(_this.subscription);
         subscription.title = subscription.title;
@@ -135,7 +147,14 @@ angular.module('eCommerceAdminApp')
         subscription.numbers=subscription.numbers;
         subscription.price=subscription.price;
         subscription.type=subscription.type;
-        subscription.features=subscription.features;
+
+        var features = [];
+        _.each(_this.features, function(value) {
+          if (value.feature && value.feature.length > 0) {
+            features.push(value.feature);
+          }
+        });
+        subscription.features= features;
 
         subscriptions.update({
           id: $routeParams.id
@@ -176,29 +195,44 @@ angular.module('eCommerceAdminApp')
       var _this = this;
       _this.title = "Add Subscription";
       _this.features=[];
+
       _this.addFeatures = function(){
-            _this.features.push({"feature":""});
-      }
+        _this.features.push({"feature":""});
+      };
+
       _this.removeFeatures = function($index){
-          _this.features.splice($index,1);
-      }
+        _this.features.splice($index,1);
+      };
+
+      _this.reset = function() {
+        _this.subscription = {};
+        _this.features = [];
+      };
+
       _this.saveSubscription = function() {
-        console.log("F");
         var subscription = angular.copy(_this.subscription);
         subscription.title = subscription.title;
         subscription.description =subscription.description;
         subscription.numbers=subscription.numbers;
         subscription.price=subscription.price;
         subscription.type=subscription.type;
-        subscription.features=subscription.features;
+
+        var features = [];
+        _.each(_this.features, function(value) {
+          if (value.feature && value.feature.length > 0) {
+            features.push(value.feature);
+          }
+        });
+        subscription.features= features;
 
         subscriptions.create({}, subscription, function(data) {
           if (data.status == "success") {
             _this.notify = {
-              message: "Updated Succesfully",
+              message: "Added Succesfully",
               status: data.status,
               type: "success"
-            }
+            };
+            _this.reset();
           } else {
             _this.notify = {
               message: data.statusMessage,

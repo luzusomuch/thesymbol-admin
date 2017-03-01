@@ -54,18 +54,18 @@
                     <td>{{license.description}}</td>
 
                     <td>
-                      <edit-button href="#/licenses/{{license._id}}" title="Edit Coupon"></edit-button>
-                      <a href="javascript:void(0)" ng-click="Ctrl.updateStatus(license._id, !license.status, $index)" title="Update User">
+                      <edit-button href="#/licenses/{{license._id}}" title="Edit License"></edit-button>
+                      <a href="javascript:void(0)" ng-click="Ctrl.updateStatus(license._id, !license.status, $index)" title="Update License Status">
                         <i class="fa fa-arrow-up"></i>
                       </a>
-                      <delete-button ng-click="Ctrl.remove(license._id, $index)" title="Delete User"></delete-button>
+                      <delete-button ng-click="Ctrl.remove(license._id, $index)" title="Delete License"></delete-button>
                     </td>
                   </tr>
                 </tbody>
                 <tfoot>
                   <tr>
                     <th>S.No</th>
-                    <th>Coupon Name</th>
+                    <th>License Name</th>
                     <th>Desciption</th>
                     <th>Action</th>
                   </tr>

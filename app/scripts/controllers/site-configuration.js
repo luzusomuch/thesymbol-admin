@@ -40,7 +40,9 @@ angular.module('eCommerceAdminApp')
           $('html, body').animate({scrollTop: 0},600);
     };
     _this.deleteBanner = function(index, type) {
-      _this.configuration[type].splice(index, 1);
+      if (window.confirm('Do you want to delete this item?')) {
+        _this.configuration[type].splice(index, 1);
+      }
     };
     _this.pushTempToSource = function(item, source) {
       if (!_this.configuration[source])
@@ -75,10 +77,12 @@ angular.module('eCommerceAdminApp')
         }
       }, function(resp) {
         var data = resp.data;
-        _this.notify = {
-          message: data.statusMessage,
-          status: data.status,
-          type: "danger"
+        if (data) {
+          _this.notify = {
+            message: data.statusMessage,
+            status: data.status,
+            type: "danger"
+          }
         }
       }, function(evt) {
         var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);

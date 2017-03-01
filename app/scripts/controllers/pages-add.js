@@ -15,13 +15,14 @@ angular.module('eCommerceAdminApp')
     "$location",
     "$routeParams",
     "sessionService",
-    function(pages, Category, $scope, $location, $routeParams, sessionService) {
+    function(pages, Category, $scope, $rootScope, $location, $routeParams, sessionService) {
       var _this = this;
       _this.title = "Add Pages";
+
       _this.savePage = function() {
         pages.create({}, _this.page, function(data) {
           if (data.status == "success") {
-            _this.page = "";
+            _this.page = {};
             _this.notify = {
               message: "Updated Succesfully",
               status: data.status,
@@ -41,6 +42,10 @@ angular.module('eCommerceAdminApp')
             type: "danger"
           }
         });
-      }
+      };
+
+      _this.reset = function() {
+        _this.page = {};
+      };
     }
   ]);
