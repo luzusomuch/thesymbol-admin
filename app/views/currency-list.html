@@ -13,7 +13,7 @@
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#!/"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
       </ol>
     </section>
@@ -50,7 +50,7 @@
                     <td>{{currency.countryCode}}</td>
                     <td>{{currency.rate}}</td>
                     <td>
-                      <edit-button href="#/edit-currency/{{currency._id}}" title="Edit Currency"></edit-button>
+                      <edit-button href="#!/edit-currency/{{currency._id}}" title="Edit Currency"></edit-button>
                       <delete-button ng-click="Ctrl.remove(currency._id)" title="Delete Currency"></delete-button>
                     </td>
                   </tr>

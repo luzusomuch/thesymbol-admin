@@ -13,7 +13,7 @@
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#!/"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
       </ol>
     </section>
@@ -46,12 +46,12 @@
 											<li style="list-style-type: none" ng-repeat="comment in Ctrl.dispute.messages">
 												<div class="media">
 													<div class="media-left">
-														<a href="#">
+														<a href="#!">
 															<img style="border-radius: 30px" alt="{{comment.ownerId.name}}" src="{{comment.ownerId | avatarUrl}}" class="media-object">
 														</a>
 													</div>
 													<div class="media-body">
-														<h4 class="media-heading"><a href="#">{{comment.ownerId.name}}</a></h4>
+														<h4 class="media-heading"><a href="#!">{{comment.ownerId.name}}</a></h4>
 														{{comment.text}}
 														<br>
 													</div>

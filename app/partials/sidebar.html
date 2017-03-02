@@ -22,8 +22,8 @@
             </span>
         </a>
         <ul class="treeview-menu">
-          <li ng-class="{'active': CC.route==='/orders'}"><a href="/#/orders"><i class="fa fa-circle-o"></i>Orders</a></li>
-          <li ng-class="{'active': CC.route==='/finance'}"><a href="/#/finance"><i class="fa fa-circle-o"></i>Commission Management</a></li>
+          <li ng-class="{'active': CC.route==='/orders'}"><a href="/#!/orders"><i class="fa fa-circle-o"></i>Orders</a></li>
+          <li ng-class="{'active': CC.route==='/finance'}"><a href="/#!/finance"><i class="fa fa-circle-o"></i>Commission Management</a></li>
         </ul>
       </li>
       <li class="treeview" ng-click="CC.activeRoute = 'configuration'" ng-class="{'active': CC.activeRoute==='configuration' || CC.route==='/settings/home-page-images' || CC.route==='/settings/sub-banner' || CC.route==='/settings/main-banner' || CC.route==='/configuration'}">
@@ -34,10 +34,10 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li ng-class="{'active': CC.route==='/settings/home-page-images'}"><a href="/#/settings/home-page-images"><i class="fa fa-circle-o"></i> Home Page Images</a></li>
-          <li ng-class="{'active': CC.route==='/settings/sub-banner'}"><a href="/#/settings/sub-banner"><i class="fa fa-circle-o"></i> Sub Banner Upload</a></li>
-          <li ng-class="{'active': CC.route==='/settings/main-banner'}"><a href="/#/settings/main-banner"><i class="fa fa-circle-o"></i> Main Banner Upload</a></li>
-          <li ng-class="{'active': CC.route==='/configuration'}"><a href="/#/configuration"><i class="fa fa-circle-o"></i> Site Configuration</a></li>
+          <li ng-class="{'active': CC.route==='/settings/home-page-images'}"><a href="/#!/settings/home-page-images"><i class="fa fa-circle-o"></i> Home Page Images</a></li>
+          <li ng-class="{'active': CC.route==='/settings/sub-banner'}"><a href="/#!/settings/sub-banner"><i class="fa fa-circle-o"></i> Sub Banner Upload</a></li>
+          <li ng-class="{'active': CC.route==='/settings/main-banner'}"><a href="/#!/settings/main-banner"><i class="fa fa-circle-o"></i> Main Banner Upload</a></li>
+          <li ng-class="{'active': CC.route==='/configuration'}"><a href="/#!/configuration"><i class="fa fa-circle-o"></i> Site Configuration</a></li>
         </ul>
       </li>
       <li class="treeview" ng-click="CC.activeRoute = 'categories'" ng-class="{'active': CC.activeRoute==='categories' || CC.route==='/add-categories' || CC.route==='/categories' || CC.route==='/add-sub-categories' || CC.route==='/categories/:id'}">
@@ -48,9 +48,9 @@
             </span>
         </a>
         <ul class="treeview-menu">
-          <li ng-class="{'active': CC.route==='/categories'}"><a href="/#/categories"><i class="fa fa-circle-o"></i> View Categories</a></li>
-          <li ng-class="{'active': CC.route==='/add-categories'}"><a href="/#/add-categories"><i class="fa fa-circle-o"></i> Add Categories</a></li>
-          <li ng-class="{'active': CC.route==='/add-sub-categories'}"><a href="/#/add-sub-categories"><i class="fa fa-circle-o"></i> Add Sub Categories</a></li>
+          <li ng-class="{'active': CC.route==='/categories'}"><a href="/#!/categories"><i class="fa fa-circle-o"></i> View Categories</a></li>
+          <li ng-class="{'active': CC.route==='/add-categories'}"><a href="/#!/add-categories"><i class="fa fa-circle-o"></i> Add Categories</a></li>
+          <li ng-class="{'active': CC.route==='/add-sub-categories'}"><a href="/#!/add-sub-categories"><i class="fa fa-circle-o"></i> Add Sub Categories</a></li>
         </ul>
       </li>
       <li class="treeview" ng-click="CC.activeRoute = 'users'" ng-class="{'active': CC.activeRoute==='users' || CC.route==='/users' || CC.route==='/add-users' || CC.route==='/users/:id'}">
@@ -61,8 +61,8 @@
             </span>
         </a>
         <ul class="treeview-menu">
-          <li ng-class="{'active': CC.route==='/users'}"><a href="/#/users"><i class="fa fa-circle-o"></i> View Users</a></li>
-          <li ng-class="{'active': CC.route==='/add-users'}"><a href="/#/add-users"><i class="fa fa-circle-o"></i> Add Users</a></li>
+          <li ng-class="{'active': CC.route==='/users'}"><a href="/#!/users"><i class="fa fa-circle-o"></i> View Users</a></li>
+          <li ng-class="{'active': CC.route==='/add-users'}"><a href="/#!/add-users"><i class="fa fa-circle-o"></i> Add Users</a></li>
         </ul>
       </li>
       <li class="treeview" ng-click="CC.activeRoute = 'coupon'" ng-class="{'active': CC.activeRoute==='coupon' || CC.route==='/coupon_list' || CC.route==='/coupon' || CC.route==='/coupons/:id'}">
@@ -73,8 +73,8 @@
             </span>
         </a>
         <ul class="treeview-menu">
-          <li ng-class="{'active': CC.route==='/coupon_list'}"><a href="/#/coupon_list"><i class="fa fa-circle-o"></i> View coupon</a></li>
-          <li ng-class="{'active': CC.route==='/coupon'}"><a href="/#/coupon"><i class="fa fa-circle-o"></i> Add Coupon</a></li>
+          <li ng-class="{'active': CC.route==='/coupon_list'}"><a href="/#!/coupon_list"><i class="fa fa-circle-o"></i> View coupon</a></li>
+          <li ng-class="{'active': CC.route==='/coupon'}"><a href="/#!/coupon"><i class="fa fa-circle-o"></i> Add Coupon</a></li>
         </ul>
       </li>
       <li class="treeview" ng-click="CC.activeRoute = 'licesne'" ng-class="{'active': CC.activeRoute==='licesne' || CC.route==='/licesne_list' || CC.route==='/licesne' || CC.route==='/licenses/:id'}">
@@ -85,8 +85,8 @@
             </span>
         </a>
         <ul class="treeview-menu">
-          <li ng-class="{'active': CC.route==='/licesne_list'}"><a href="/#/licesne_list"><i class="fa fa-circle-o"></i> View Licesne</a></li>
-          <li ng-class="{'active': CC.route==='/licesne'}"><a href="/#/licesne"><i class="fa fa-circle-o"></i> Add License</a></li>
+          <li ng-class="{'active': CC.route==='/licesne_list'}"><a href="/#!/licesne_list"><i class="fa fa-circle-o"></i> View Licesne</a></li>
+          <li ng-class="{'active': CC.route==='/licesne'}"><a href="/#!/licesne"><i class="fa fa-circle-o"></i> Add License</a></li>
         </ul>
       </li>
       <li class="treeview" ng-click="CC.activeRoute = 'subscription'" ng-class="{'active': CC.activeRoute==='subscription' || CC.route==='/subscription_list' || CC.route==='/subscription' || CC.route==='/subscriptions/:id'}">
@@ -97,11 +97,11 @@
             </span>
         </a>
         <ul class="treeview-menu">
-          <li ng-class="{'active': CC.route==='/subscription_list'}"><a href="/#/subscription_list"><i class="fa fa-circle-o"></i> View Subscription</a></li>
-          <li ng-class="{'active': CC.route==='/subscription'}"><a href="/#/subscription"><i class="fa fa-circle-o"></i> Add Subscription</a></li>
+          <li ng-class="{'active': CC.route==='/subscription_list'}"><a href="/#!/subscription_list"><i class="fa fa-circle-o"></i> View Subscription</a></li>
+          <li ng-class="{'active': CC.route==='/subscription'}"><a href="/#!/subscription"><i class="fa fa-circle-o"></i> Add Subscription</a></li>
         </ul>
       </li>
-      <li ng-class="{'active': CC.route==='/product' || CC.route==='/product/:id' || CC.route==='/product/view/:id'}"><a href="/#/product"><i class="fa fa-circle-o text-red"></i> <span>Product</span></a></li>
+      <li ng-class="{'active': CC.route==='/product' || CC.route==='/product/:id' || CC.route==='/product/view/:id'}"><a href="/#!/product"><i class="fa fa-circle-o text-red"></i> <span>Product</span></a></li>
       <li class="treeview" ng-click="CC.activeRoute = 'pages'" ng-class="{'active': CC.activeRoute==='pages' || CC.route==='/pages' || CC.route==='/add-pages' || CC.route==='/pages/:id'}">
         <a href="javascript:void(0)">
           <i class="fa fa-dashboard"></i> <span>Pages</span>
@@ -110,8 +110,8 @@
             </span>
         </a>
         <ul class="treeview-menu">
-          <li ng-class="{'active': CC.route==='/pages'}"><a href="/#/pages"><i class="fa fa-circle-o"></i> View Pages</a></li>
-          <li ng-class="{'active': CC.route==='/add-pages'}"><a href="/#/add-pages"><i class="fa fa-circle-o"></i> Add Pages</a></li>
+          <li ng-class="{'active': CC.route==='/pages'}"><a href="/#!/pages"><i class="fa fa-circle-o"></i> View Pages</a></li>
+          <li ng-class="{'active': CC.route==='/add-pages'}"><a href="/#!/add-pages"><i class="fa fa-circle-o"></i> Add Pages</a></li>
         </ul>
       </li>
       <li class="treeview" ng-click="CC.activeRoute = 'emailtemplates'" ng-class="{'active': CC.activeRoute==='emailtemplates' || CC.route==='/emailtemplates' || CC.route==='/add-emailtemplates' || CC.route==='/emailtemplates/:id'}">
@@ -122,8 +122,8 @@
               </span>
         </a>
         <ul class="treeview-menu">
-          <li ng-class="{'active': CC.route==='/emailtemplates'}"><a href="/#/emailtemplates"><i class="fa fa-circle-o"></i> View Email Templates</a></li>
-          <li ng-class="{'active': CC.route==='/add-emailtemplates'}"><a href="/#/add-emailtemplates"><i class="fa fa-circle-o"></i> Add Email Templates</a></li>
+          <li ng-class="{'active': CC.route==='/emailtemplates'}"><a href="/#!/emailtemplates"><i class="fa fa-circle-o"></i> View Email Templates</a></li>
+          <li ng-class="{'active': CC.route==='/add-emailtemplates'}"><a href="/#!/add-emailtemplates"><i class="fa fa-circle-o"></i> Add Email Templates</a></li>
         </ul>
       </li>
 
@@ -135,8 +135,8 @@
               </span>
         </a>
         <ul class="treeview-menu">
-          <li ng-class="{'active': CC.route==='/primesubscription-list'}"><a href="/#/primesubscription-list"><i class="fa fa-circle-o"></i> View prime subscription</a></li>
-          <li ng-class="{'active': CC.route==='/add-primesubscription'}"><a href="/#/add-primesubscription"><i class="fa fa-circle-o"></i> Add prime subscription</a></li>
+          <li ng-class="{'active': CC.route==='/primesubscription-list'}"><a href="/#!/primesubscription-list"><i class="fa fa-circle-o"></i> View prime subscription</a></li>
+          <li ng-class="{'active': CC.route==='/add-primesubscription'}"><a href="/#!/add-primesubscription"><i class="fa fa-circle-o"></i> Add prime subscription</a></li>
         </ul>
       </li>
 
@@ -148,8 +148,8 @@
               </span>
         </a>
         <ul class="treeview-menu">
-          <li ng-class="{'active': CC.route==='/currency-list'}"><a href="/#/currency-list"><i class="fa fa-circle-o"></i> View currency</a></li>
-          <li ng-class="{'active': CC.route==='/add-currency'}"><a href="/#/add-currency"><i class="fa fa-circle-o"></i> Add currency</a></li>
+          <li ng-class="{'active': CC.route==='/currency-list'}"><a href="/#!/currency-list"><i class="fa fa-circle-o"></i> View currency</a></li>
+          <li ng-class="{'active': CC.route==='/add-currency'}"><a href="/#!/add-currency"><i class="fa fa-circle-o"></i> Add currency</a></li>
         </ul>
       </li>
 
@@ -161,7 +161,7 @@
               </span>
         </a>
         <ul class="treeview-menu">
-          <li ng-class="{'active': CC.route==='/dispute-list'}"><a href="/#/dispute-list"><i class="fa fa-circle-o"></i> View dispute</a></li>
+          <li ng-class="{'active': CC.route==='/dispute-list'}"><a href="/#!/dispute-list"><i class="fa fa-circle-o"></i> View dispute</a></li>
         </ul>
       </li>
     </ul>

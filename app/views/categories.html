@@ -13,7 +13,7 @@
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#!/"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
       </ol>
     </section>
@@ -46,8 +46,8 @@
                     <td>{{category.parent_id.name}}</td>
                     <td>{{category.description}}</td>
                     <td>
-                      <edit-button ng-if="category.parent_id == null" href="#/categories/{{category._id}}" title="Edit Category"></edit-button>
-                      <edit-button ng-if="category.parent_id != null " href="#/edit-sub-categories/{{category._id}}" title="Edit Category"></edit-button>
+                      <edit-button ng-if="category.parent_id == null" href="#!/categories/{{category._id}}" title="Edit Category"></edit-button>
+                      <edit-button ng-if="category.parent_id != null " href="#!/edit-sub-categories/{{category._id}}" title="Edit Category"></edit-button>
                       <delete-button ng-click="Ctrl.remove(category._id, $index)" title="Delete Category"></delete-button>
                     </td>
                   </tr>

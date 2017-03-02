@@ -13,7 +13,7 @@
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#!/"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
       </ol>
     </section>
@@ -44,7 +44,7 @@
                     <td>{{page.name}}</td>
                     <td>{{page.description}}</td>
                     <td>
-                      <edit-button href="#/pages/{{page._id}}" title="Edit Page"></edit-button>
+                      <edit-button href="#!/pages/{{page._id}}" title="Edit Page"></edit-button>
                       <delete-button ng-click="PagesCtrl.remove(page._id, $index)" title="Delete Page"></delete-button>
                     </td>
                   </tr>

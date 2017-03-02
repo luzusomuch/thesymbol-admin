@@ -13,7 +13,7 @@
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#!/"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
       </ol>
     </section>
@@ -67,7 +67,7 @@
                       <b ng-repeat="role in user.roles">{{role}}{{$last ? '' : ', '}}</b>
                     </td>
                     <td>
-                      <edit-button href="#/users/{{user._id}}" title="Edit User"></edit-button>
+                      <edit-button href="#!/users/{{user._id}}" title="Edit User"></edit-button>
                       <a href="javascript:void(0)" ng-click="Ctrl.updateStatus(user._id, !user.status, $index)" title="Update User">
                         <i class="fa fa-arrow-up"></i>
                       </a>

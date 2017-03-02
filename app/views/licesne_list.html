@@ -13,7 +13,7 @@
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#!/"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
       </ol>
     </section>
@@ -54,7 +54,7 @@
                     <td>{{license.description}}</td>
 
                     <td>
-                      <edit-button href="#/licenses/{{license._id}}" title="Edit License"></edit-button>
+                      <edit-button href="#!/licenses/{{license._id}}" title="Edit License"></edit-button>
                       <a href="javascript:void(0)" ng-click="Ctrl.updateStatus(license._id, !license.status, $index)" title="Update License Status">
                         <i class="fa fa-arrow-up"></i>
                       </a>

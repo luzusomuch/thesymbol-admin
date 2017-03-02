@@ -13,7 +13,7 @@
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#!/"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
       </ol>
     </section>
@@ -44,7 +44,7 @@
                     <td>{{emailtemplate.name}}</td>
                     <td>{{emailtemplate.description}}</td>
                     <td>
-                      <edit-button href="#/emailtemplates/{{emailtemplate._id}}" title="Edit Email Template"></edit-button>
+                      <edit-button href="#!/emailtemplates/{{emailtemplate._id}}" title="Edit Email Template"></edit-button>
                       <delete-button ng-click="Ctrl.remove(emailtemplate._id, $index)" title="Delete Email Template"></delete-button>
                     </td>
                   </tr>

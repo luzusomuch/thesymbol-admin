@@ -38,6 +38,10 @@ angular
     // dev mode
     'endpoint': "http://localhost:3000/api/v1"
   })
+  .config(function($locationProvider) {
+    $locationProvider.html5Mode(false);
+    $locationProvider.hashPrefix('!');
+  })
   .config(function(growlProvider) {
     growlProvider.globalTimeToLive(3000);
     growlProvider.globalDisableCountDown(true);
