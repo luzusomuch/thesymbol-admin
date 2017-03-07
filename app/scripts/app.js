@@ -30,13 +30,13 @@ angular
     // 'endpoint': "http://192.241.154.223:3000/api/v1"
 
     // our ecommercemarketplace server
-    // 'endpoint': 'http://159.203.165.170:3000/api/v1',
+    'endpoint': 'http://159.203.64.172:3000/api/v1',
 
     // romaios.com server
     // 'endpoint': 'http://45.55.205.112:3000/api/v1',    
 
     // dev mode
-    'endpoint': "http://localhost:3000/api/v1"
+    // 'endpoint': "http://localhost:3000/api/v1"
   })
   .config(function($locationProvider) {
     $locationProvider.html5Mode(false);
