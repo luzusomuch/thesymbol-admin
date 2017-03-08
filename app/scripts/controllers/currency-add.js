@@ -42,6 +42,7 @@ angular.module('eCommerceAdminApp')
 
   	this.submit = function(form) {
   		_this.submitted = true;
+      console.log(form);
   		if (form.$valid) {
   			currencyService.create({}, _this.currency).$promise.then(function(data) {
   				if (data.status==='success') {
