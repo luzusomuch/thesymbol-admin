@@ -20,7 +20,8 @@ angular
     'ngTouch',
     'ngFileUpload',
     'angular-growl',
-    'ui.select'
+    'ui.select',
+    'angular.filter'
   ])
   .constant({
     // production mode

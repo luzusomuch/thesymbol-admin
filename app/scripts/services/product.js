@@ -9,7 +9,6 @@
  */
 angular.module('eCommerceAdminApp')
   .factory('Product', ['$resource', 'endpoint', 'sessionService', function($resource, endpoint, sessionService) {
-
     return $resource(endpoint + '/products', null, {
        getAllProducts: {
          url: endpoint + '/products/get-products',
