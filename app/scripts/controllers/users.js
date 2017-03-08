@@ -191,6 +191,10 @@ angular.module('eCommerceAdminApp')
       var _this = this;
       _this.title = "Add Users";
 
+      _this.reset = function() {
+        _this.user = {};
+      };
+
       _this.saveUser = function() {
         var user = angular.copy(_this.user);
         user.image = user.upload_image ? user.upload_image : null;
