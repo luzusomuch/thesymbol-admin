@@ -114,6 +114,8 @@ angular.module('eCommerceAdminApp')
       });
     }
   }])
+
+  // site configuration ctrl
   .controller('SiteConfigurationCtrl', ['siteConfiguration', 'Upload', 'endpoint', function(siteConfiguration, Upload, endpoint) {
     var _this = this;
     _this.title = "Admin Configuration";
