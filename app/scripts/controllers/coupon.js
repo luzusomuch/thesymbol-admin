@@ -30,6 +30,7 @@ angular.module('eCommerceAdminApp')
         type: "danger"
       }
     });
+
     _this.updateStatus = function(id, status, index) {
       coupons.update({id:id},{status: status}, function (data) {
         if(data.status == "success") {
@@ -119,6 +120,11 @@ angular.module('eCommerceAdminApp')
           type: "danger"
         }
       });
+
+      _this.reset = function() {
+        _this.coupon = {};
+      };
+
       _this.saveCoupon = function() {
         var coupon = angular.copy(_this.coupon);
         coupon.name = coupon.name;
@@ -166,6 +172,11 @@ angular.module('eCommerceAdminApp')
     function(coupons, $scope, $location, $routeParams, sessionService, Upload, endpoint) {
       var _this = this;
       _this.title = "Add Coupon";
+
+      _this.reset = function() {
+        _this.coupon = {};
+      };
+
       _this.saveCoupon = function() {
         console.log("F");
         var coupon = angular.copy(_this.coupon);
@@ -183,6 +194,7 @@ angular.module('eCommerceAdminApp')
               status: data.status,
               type: "success"
             }
+            _this.reset();
           } else {
             _this.notify = {
               message: data.statusMessage,
