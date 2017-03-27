@@ -11,23 +11,46 @@ angular.module('eCommerceAdminApp')
   .controller('UsersCtrl', ["users", function(users) {
     var _this = this;
     _this.title = "View Users";
-    users.query(function(data) {
-      if (data.status == "success") {
+
+    // this is old code, it's only show clients list whose have subscription
+    // users.query(function(data) {
+    //   if (data.status == "success") {
+    //     _this.users = data.response.users;
+    //   } else {
+    //     _this.notify = {
+    //       message: data.statusMessage,
+    //       status: data.status,
+    //       type: "danger"
+    //     }
+    //   }
+    // }, function(data) {
+    //   _this.notify = {
+    //     message: data.statusText,
+    //     status: data.status,
+    //     type: "danger"
+    //   }
+    // });
+
+
+    // this is newest code, we will query all user
+    users.getAllUsers(function(data) {
+      if (data.status==='success') {
         _this.users = data.response.users;
       } else {
         _this.notify = {
           message: data.statusMessage,
           status: data.status,
-          type: "danger"
+          type: 'danger'
         }
       }
-    }, function(data) {
+    }, function(err) {
       _this.notify = {
         message: data.statusText,
         status: data.status,
-        type: "danger"
+        type: 'danger'
       }
     });
+
     _this.updateStatus = function(id, status, index) {
       users.update({id:id},{status: status}, function (data) {
         if(data.status == "success") {
