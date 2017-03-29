@@ -36,8 +36,9 @@
                     <th>S.No</th>
                     <th>Coupon Name</th>
                     <th>Desciption</th>
-                    <th>User</th>
+                    <th>Uses</th>
                     <th>Code</th>
+                    <th>Discount amount ($)</th>
                     <th>Start</th>
                     <th>Expiry</th>
                     <th>Action</th>
@@ -47,7 +48,8 @@
                     <td><input type="text" class="form-control" ng-model="Ctrl.search.name"></td>
                     <td><input type="text" class="form-control" ng-model="Ctrl.search.description"></td>
                     <td><input type="text" class="form-control" ng-model="Ctrl.search.user"></td>
-                      <td><input type="text" class="form-control" ng-model="Ctrl.search.code"></td>
+                    <td><input type="text" class="form-control" ng-model="Ctrl.search.code"></td>
+                    <td><input type="text" class="form-control" ng-model="Ctrl.search.amount"></td>
                     <td><input type="text" class="form-control" ng-model="Ctrl.search.start"></td>
                     <td><input type="text" class="form-control" ng-model="Ctrl.search.expiry"></td>
                     <td></td>
@@ -61,12 +63,9 @@
                     <td>{{coupon.description}}</td>
                     <td>{{coupon.uses}}</td>
                     <td>{{coupon.code}}</td>
-                    <td>
-                    {{coupon.start}}
-                    </td>
-                    <td>
-                    {{coupon.expiry}}
-                    </td>
+                    <td>{{coupon.amount}}</td>
+                    <td>{{coupon.start | date: 'longDate'}}</td>
+                    <td>{{coupon.expiry | date: 'longDate'}}</td>
 
                     <td>
                       <edit-button href="#!/coupons/{{coupon._id}}" title="Edit Coupon"></edit-button>
@@ -84,6 +83,7 @@
                     <th>Desciption</th>
                     <th>Uses</th>
                     <th>Code</th>
+                    <th>Discount amount ($)</th>
                     <th>Start</th>
                     <th>Expiry</th>
                     <th>Action</th>

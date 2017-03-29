@@ -21,7 +21,8 @@ angular
     'ngFileUpload',
     'angular-growl',
     'ui.select',
-    'angular.filter'
+    'angular.filter',
+    'ui.bootstrap'
   ])
   .constant({
     // production mode

@@ -104,8 +104,8 @@ angular.module('eCommerceAdminApp')
           _this.coupon.description =_this.coupon.description;
           _this.coupon.code=_this.coupon.code;
           _this.coupon.uses=_this.coupon.uses;
-          _this.coupon.start=_this.coupon.start;
-          _this.coupon.expiry=_this.coupon.expiry;
+          _this.coupon.start= new Date(_this.coupon.start);
+          _this.coupon.expiry= new Date(_this.coupon.expiry);
         } else {
           _this.notify = {
             message: data.statusMessage,
@@ -134,6 +134,7 @@ angular.module('eCommerceAdminApp')
         coupon.start=coupon.start;
         coupon.expiry=coupon.expiry;
 
+console.log(coupon);
         coupons.update({
           id: $routeParams.id
         }, coupon, function(data) {

@@ -34,12 +34,27 @@
               <div class="box-body">
                 <form-input label= "Name" required name="name" model="Ctrl.coupon.name"></form-input>
                 <form-input label="Description" required name="email" model="Ctrl.coupon.description"></form-input>
-                <form-input label="Code" required name="phone" model="Ctrl.coupon.code"></form-input>
-                <form-input label="User" required name="phone" model="Ctrl.coupon.uses"></form-input>
+                <form-input label="Code" required name="code" model="Ctrl.coupon.code"></form-input>
+                <form-input label="Uses" required name="uses" model="Ctrl.coupon.uses"></form-input>
+                <form-input label="Discount Amount (In USD)" required name="amount" model="Ctrl.coupon.amount"></form-input>
+
                 <label>Start</label>
-                <input class="form-control" type="date" label="Start" id="start"  required name="phone" model="Ctrl.coupon.start"/>
+                <div class="input-group">
+                  <input type="text" class="form-control" uib-datepicker-popup="{{'MM/dd/yyyy'}}" ng-model="Ctrl.coupon.start" is-open="Ctrl.openStart" ng-required="true" close-text="Close"/>
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="Ctrl.openStart=!Ctrl.openStart"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                </div>
+
                 <label>Expiry</label>
-                <input type="date" class="form-control" label="Expiry" type="date" required name="phone" model="Ctrl.coupon.expiry"></form-input>
+                <div class="input-group">
+                  <input type="text" class="form-control" uib-datepicker-popup="{{'MM/dd/yyyy'}}" ng-model="Ctrl.coupon.expiry" is-open="Ctrl.openExpiry" ng-required="true" close-text="Close"/>
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="Ctrl.openExpiry=!Ctrl.openExpiry"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                </div>
+
+              </div>
             <!-- /.box-body -->
 
               <div class="box-footer">
