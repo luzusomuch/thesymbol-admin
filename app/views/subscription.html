@@ -34,15 +34,15 @@
               <div class="box-body">
                 <form-input label= "Title" required name="title" model="Ctrl.subscription.title"></form-input>
                 <form-input label="Description" required name="description" model="Ctrl.subscription.description"></form-input>
-                <form-input label="Numbers" required name="numbers" model="Ctrl.subscription.numbers"></form-input>
+                <!-- <form-input label="Numbers" required name="numbers" model="Ctrl.subscription.numbers"></form-input> -->
                 <form-input label="price" required name="price" model="Ctrl.subscription.price"></form-input>
                 <label>Select Type</label>
                 <select  ng-model="Ctrl.subscription.type" class="form-control" required class="col-md-3 form-cont product_info_input" ng-model="cat" ng-change ="sub_category()">
   							<option value="">Select</option>
-  								<option  value="days">Day</option>
-                  <option  value="weeks">Week</option>
-                  <option  value="months">Month</option>
-                  <option  value="years">Year</option>
+  								<option  value="day">Day</option>
+                  <option  value="week">Week</option>
+                  <option  value="month">Month</option>
+                  <option  value="year">Year</option>
   							</select>
                 <label>Add Features</label>
                 <div  data-ng-repeat="feature in Ctrl.features" class="col-md-12" style="padding:0px;">
